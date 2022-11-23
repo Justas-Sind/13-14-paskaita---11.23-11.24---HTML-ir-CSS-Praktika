@@ -1,0 +1,47 @@
+/* Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Variables */
+:root {
+  --primary-color: rgb(100, 92, 255);
+}
+
+/* Universal styles */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+/* Global classes */
+
+.container-center {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 0 3rem 0;
+}
