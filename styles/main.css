@@ -5,11 +5,13 @@
 /* Variables */
 :root {
   --primary-color: rgb(100, 92, 255);
-  --primary-color-darker: rgb(91, 84, 233);
-  --primary-color-lighter: rgb(106, 98, 244);
+  --primary-color-darker: rgb(73, 64, 234);
+  --primary-color-lighter: rgb(135, 129, 245);
+  --primary-color-opacity-half: rgba(100, 92, 255, 0.5);
   --primary-text-color: rgb(14, 23, 42);
   --white-color: rgb(255, 255, 255);
   --background-color: rgb(248, 251, 252);
+  --background-dark: rgb(33, 33, 33);
 }
 
 /* Universal styles */
@@ -57,7 +59,7 @@ h2 {
   text-transform: uppercase;
   font-size: 1.75rem;
   text-align: center;
-  padding: 0.5rem 0 2rem 0;
+  padding: 2rem 0 2rem 0;
   color: var(--primary-text-color);
 }
 
@@ -86,7 +88,7 @@ p {
 .container-center {
   width: 90%;
   margin: 0 auto;
-  padding: 2rem 0 5rem 0;
+  padding: 0.5rem 0 5rem 0;
 }
 
 .main-color {
@@ -135,11 +137,12 @@ nav {
 }
 
 .social-icons li {
-  margin-left: 0.6rem;
+  margin-left: 0.8rem;
 }
 
 .soc-icon i {
   color: var(--primary-color);
+  transition: color 500ms;
 }
 
 
@@ -171,6 +174,7 @@ nav {
   font-weight: 600;
   text-transform: capitalize;
   color: var(--white-color);
+  transition: background-color 500ms;
 }
 
 @media (min-width: 992px) {
@@ -193,6 +197,13 @@ nav {
     text-transform: capitalize;
     font-size: 0.75rem;
     font-weight: 800;
+    transition: color 500ms;
+  }
+  .links ul a:hover {
+    color: var(--primary-color-lighter);
+  }
+  .soc-icon i:hover{
+    color: var(--primary-color-lighter);
   }
   header {
     background: linear-gradient(rgba(73, 67, 183, 0.906),rgba(0, 0, 0, 0.597)),
@@ -203,6 +214,13 @@ nav {
   }
   .hero-container p {
     padding: 1.5rem 12rem;
+  }
+  .hero-container a {
+    background-color: var(--primary-color);
+
+  }
+  .hero-container a:hover {
+    background-color: var(--primary-color-darker);
   }
 }
 
@@ -305,6 +323,7 @@ nav {
 
 #featured .card {
   box-shadow: 0 1px 2px rgba(14, 23, 42, 0.134);
+  transition: box-shadow 500ms;
 }
 
 #featured .card .image-container {
@@ -367,8 +386,221 @@ nav {
     grid-template: 1fr 1fr / 1fr 1fr 1fr;
     gap: 3rem 1.5rem;
   }
-
   #featured .container-center > a {
-    margin: 5rem 0;
+    margin: 5rem 0 0 0;
+  }
+  #featured .card:hover {
+    box-shadow: 0 2px 10px rgba(14, 23, 42, 0.353);
   }
 }
+
+/* Our Gallery */
+#gallery .container-center {
+  width: 100%;
+  padding: 0.5rem 0 0 0;
+}
+
+#gallery h2 {
+  background-color: var(--background-color);
+}
+
+#gallery .gallery-container {
+  background-color: var(--primary-color);
+}
+
+#gallery .gallery-container {
+  display: grid;
+  grid-template: auto;
+  row-gap: 0.25rem;
+}
+
+#gallery .image-container {
+  aspect-ratio: 3 / 2;
+}
+
+#gallery .image-container:nth-child(1) {
+  background: url(./images/raimond-klavins-L6jxljMeUoo-unsplash.webp) center/cover no-repeat;
+}
+
+#gallery .image-container:nth-child(2) {
+  background: url(./images/nanda-firdaus-mjr_5_ntTf8-unsplash.webp) center/cover no-repeat;
+}
+
+#gallery .image-container:nth-child(3) {
+  background: url(./images/ryan-mac-kCABKZBt4Gk-unsplash.webp) center/cover no-repeat;
+}
+
+#gallery .image-container:nth-child(4) {
+  background: url(./images/sergey-pesterev-DWXR-nAbxCk-unsplash.webp) center/cover no-repeat;
+}
+
+#gallery .inner-img-container {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  #gallery .gallery-container {
+    grid-template: 1fr / repeat(4, 1fr);
+  }
+  #gallery .inner-img-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color-opacity-half);
+    backdrop-filter: blur(2px);
+  }
+  #gallery .inner-img-container i {
+    color: var(--white-color);
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  #gallery .image-container:hover .inner-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Newsletter section */
+#newsletter {
+  background-color: var(--primary-color);
+}
+
+#newsletter .container {
+  padding: 0 0.75rem;
+}
+
+#newsletter .text-container h2 {
+  color: var(--white-color);
+}
+
+#newsletter .text-container p {
+  color: var(--white-color);
+  font-size: 1rem;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+#newsletter form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#newsletter form .email {
+  display: flex;
+  padding-bottom: 3rem;
+}
+
+#newsletter input[name="email"] {
+  width: 175px;
+  height: 25px;
+  border: none;
+}
+
+#newsletter input[name="email"]::placeholder {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 0;
+  padding-left: 0.5rem;
+  color: var(--primary-text-color);
+}
+
+#newsletter input[type="submit"] {
+  width: 70px;
+  height: 25px;
+  border: none;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 0;
+  background-color: rgb(227, 227, 227);
+  color: var(--primary-text-color);
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  #newsletter .container {
+    display: flex;
+  }
+  #newsletter .text-container {
+    flex-grow: 1;
+  }
+  #newsletter form {
+    flex-grow: 1;
+  }
+  #newsletter form .email {
+    padding-bottom: 0;
+  }
+  #newsletter input[name="email"] {
+    width: 300px;
+  }
+  #newsletter .text-container p {
+    margin-bottom: 3rem;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: var(--background-dark);
+}
+.footer-container {
+  padding: 3rem 1rem 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-links {
+  display: block;
+}
+
+.footer-links ul {
+  display: flex;
+}
+.footer-links ul li {
+  margin-right: 0.75rem;
+}
+.footer-links ul a {
+  color: var(--background-color);
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  font-weight: 800;
+  transition: color 500ms;
+}
+
+.footer-links ul a:hover {
+  color: var(--primary-color-lighter);
+}
+
+.footer-icons ul {
+  display: flex;
+  align-items: center;
+}
+
+.footer-icons li {
+  margin-left: 0.8rem;
+}
+
+.footer-icons .soc-icon i {
+  color: var(--primary-color);
+  transition: color 500ms;
+}
+
+.footer-icons .soc-icon i:hover {
+  color: var(--primary-color-lighter);
+}
+
+.footer-container .text-container p {
+  color: var(--background-color);
+  text-transform: capitalize;
+}
+
+
+
+
+
+
